@@ -8,8 +8,9 @@ bootsect.o:
 run-qemu:bootsect
 	@qemu-system-i386 -boot a -fda bootsect
 
-bootsect:
-	ld -T ld-bootsect.ld bootsect.o -o  bootsect 
-	objcopy -O binary -j .text bootsect
+bootsect:bootsect.o ld-bootsect.ld
+	@ld -T ld-bootsect.ld bootsect.o -o  bootsect 
+	@objcopy -O binary -j .text bootsect
+
 clean:
 	@rm -f *.o bootsect
