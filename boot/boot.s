@@ -16,10 +16,11 @@
 
     _loop:
         jmp _loop
-    .=510
 
     str_p:
         .ascii "RulaOS\n"
         
+    .=510
+
     id:
         .word 0xaa55
