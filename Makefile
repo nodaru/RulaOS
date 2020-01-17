@@ -9,7 +9,7 @@ run:
 	@qemu-system-i386 -boot a -fda boot/bootsect
 
 bootsect: bootsect.o
-	@ld -T script/ld-bootsect.ld bootsect.o -o  bootsect 
+	@ld -T ld_script/ld-bootsect.ld boot/bootsect.o -o  boot/bootsect 
 	@objcopy -O binary -j .text boot/bootsect
 
 clean:
