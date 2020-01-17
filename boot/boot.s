@@ -2,10 +2,8 @@
 .global _bootst
 
 .text
-    ljmp $BOOTSEG, $_bootst
-    str_p:
-        .ascii "RulaOS\n"
     .equ BOOTSEG, 0x07c0
+    ljmp $BOOTSEG, $_bootst
     _bootst:
         mov $0x03,%ah
         int $0x10
@@ -20,5 +18,8 @@
         jmp _loop
     .=510
 
+    str_p:
+        .ascii "RulaOS\n"
+        
     id:
         .word 0xaa55
